@@ -9,21 +9,27 @@
   - material-ui 아이콘목록 list 검색 url
     https://v4.mui.com/components/material-icons/
 */
-/*TODO: Header
+/*DONE: Header
   -3부분으로 나누어서 마크업 (로고/서치바/정보창)
-  
-    */
+ */
+/*TODO:Home
+  container -> 디자인영역확보
+  배경
+  3 rows -> 상품화면
+*/
+/*TODO: Product component
 
+*/
 import React from 'react';
 import "./App.css"
 import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+
 function App() {
   return (
     <div className='app'>
-      <h1>hello, let's build amazon :🚀</h1>
-      {/* Header */}
       <Header/>
-      {/* Home */}
+      <Home/>
     </div>
   )
 }
