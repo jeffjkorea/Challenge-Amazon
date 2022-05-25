@@ -16,8 +16,46 @@
   container -> 디자인영역확보
   배경
   3 rows -> 상품화면
+
+  Product component->각각의 상품카드는 새로운 컴포넌트생성 
+  
+  디자인 완료후 product component -> data props
+
+  Array.prototype.fill() -> The fill() method changes all elements in an array to a static value
+    from a start index (default 0) to an end index (default array.length).
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+
+  const array1 = [1, 2, 3, 4];
+  array1.fill(0, 2, 4)
+  // expected output: [1, 2, 0, 0]
+
+  10 * 10 배열
+  const h = 10;
+  const w = 10;
+  const grid = Array(h * w)
+  [ <1 empty items>, <2>, ....<100> ] //결과
+
+  fill()로 각 자리를 채우기
+  const grid = Array(h * w).fill() //fill 인자가 없으므로 undefine 할당됨
+  [undefined,........, undefined]
+
+  map()으로 각 자리 index에 해당하는 값 할당하기
+  const grid = Array(h * w).fill().map((arr, i) => {  // (arr: 현재값, i:인덱스)
+    return i
+})
+
+//Array(h * w).fill()의 각 값(undefined)을 map()을 통해 하나씩 불러와서 i로 return
+//map()은 각각 return한 값으로 이루어진 배열을 생성함
+//생성된 배열이 grid가 됨!!
+[
+   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11,
+  12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+  24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+  36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, ... 99]
+
+
 */
-/*TODO: Product component
+/*TODO: 
 
 */
 import React from 'react';
