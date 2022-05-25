@@ -12,7 +12,7 @@
 /*DONE: Header
   -3부분으로 나누어서 마크업 (로고/서치바/정보창)
  */
-/*TODO:Home
+/*DONE:Home
   container -> 디자인영역확보
   배경
   3 rows -> 상품화면
@@ -53,22 +53,45 @@
   24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
   36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, ... 99]
 
+Array(45)를 콘솔 창에 쳐보면 텅텅 빈 45개의 배열이 생성
+여기서 배열의 모든 공간에 숫자 1을 넣고 싶다면, Array(45). fill(1)이라고 작성하면 된다.
+fill() 메서드는 arr.fill(value [, start [, end]]) 의 구문
+value : 배열을 채울 값 / start : 시작 인덱스 / end : 끝 인덱스 ( end가 3이면, 3은 포함되지 않는다 )
 
+만약 같은 숫자가 아닌 1부터 45까지 모든 숫자를 출력
+Array(45). fill(). map((v, i)=> i+1); 을 작성한다
 */
-/*TODO: 
+
+
+/*TODO: CHECKOUT PAGE
+NPM INSTALL react-router-dom
+routing 기능 설치!
+
 
 */
 import React from 'react';
 import "./App.css"
+
+import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
+
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 
 function App() {
   return (
-    <div className='app'>
+    <Router>
       <Header/>
-      <Home/>
-    </div>
+
+      <Routes>
+        <Route path="/" element={
+          <Home/>
+        }/>
+        <Route path="/checkout" element={
+          <h1>Checkout</h1>
+        }/>
+      </Routes>
+
+    </Router>
   )
 }
 export default App;
