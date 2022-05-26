@@ -46,7 +46,7 @@
     font-size: 12px;
 }
 
-button{
+.login__signInBtn{
     background: #f0c14b;
     border: 1px solid;
     border-radius: 2px;
@@ -57,6 +57,22 @@ button{
     color:#111;
 }
 .login__registerBtn{
+    border: 1px solid;
+    margin-top: 10px;
+    border-radius: 2px;
+    height:30px;
     background-color: lightgrey;
     border-color: grey;
+}
+.login__registerSuccessMgs{
+    color :green;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+}
+.login__registerErrMgs{
+    color :red;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
 }

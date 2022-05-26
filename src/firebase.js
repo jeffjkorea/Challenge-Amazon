@@ -1,3 +1,5 @@
+// https://firebase.google.com/docs/web/setup?authuser=0&hl=ko
+
 /*NOTE: FIREBASE SETTING
 firebase why?
     - 호스팅에 사용
@@ -44,12 +46,19 @@ npm install -g firebase-tools
 /*TODO: FIREBASE CONNECT
 */
 
+import { initializeApp } from 'firebase/app';
+import { getAuth } from "firebase/auth";
+
 const firebaseConfig = {
     apiKey: "AIzaSyDMs3oLM3x0TxURLPge6jV5HSsXumh4wJ4",
+    // apiKey: process.env.FIREBASE_APIKEY,
     authDomain: "challenge-77583.firebaseapp.com",
     projectId: "challenge-77583",
     storageBucket: "challenge-77583.appspot.com",
     messagingSenderId: "386124661481",
     appId: "1:386124661481:web:74157755ebc8f6ee3fe678",
     measurementId: "G-6YNTBZ6P71"
-  };
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth();

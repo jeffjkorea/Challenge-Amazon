@@ -1,20 +1,54 @@
 import React, { useState } from 'react'
 import './Login.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+
+import {auth} from "./../../firebase"
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
+
 
 function Login() {
-
+  const [authError, setAuthError] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const signIn =(e)=>{
     e.preventDefault();
     // some firebase login...
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+      setAuthError(false);
+      if (auth) {
+        navigate('/');
+      }
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setAuthError(error.message);
+    });
   }
 
   const register = (e)=>{
     e.preventDefault();
-    // some firebase login...
+    // some firebase register...
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+      setAuthError(false);
+      if (auth) {
+        navigate('/');
+      }
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setAuthError(error.message);
+    });
   }
   return (
     <div className='login'>
@@ -53,6 +87,7 @@ function Login() {
         <button className='login__registerBtn'
           onClick={register}>
           Create a new Account</button>
+        {authError && <span className='login__registerErrMgs'>{authError}</span>}
       </div>
     </div>
   )

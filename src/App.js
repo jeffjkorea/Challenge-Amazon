@@ -86,9 +86,20 @@ product button onclick -> dispatch item into data layer
 */
 /*TODO:LOGIN PAGE
 -route설정
+-link설정
+-login page 디자인 및 함수설정
+
+-firebase 연동
+콘솔이동 프로젝트선택
+authentication-시작하기 /로그인방법->이메일,비번 / 이메일비밀번호 사용설정 on
+
+firebase -> file 세팅 sdk, db, auth
+
+-login page - > register logic
+useHistory 옜날버전 지금은 useNavigate
 
 */
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./App.css"
 
 import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
@@ -96,8 +107,37 @@ import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 import Home from './pages/Home/Home';
 import Checkout from './pages/Checkout/Checkout';
 import Login from './pages/Login/Login';
+import { useStateValue } from './context/StateProvider';
+
+import { auth } from './firebase';
+import { onAuthStateChanged } from "firebase/auth";
+
 
 function App() {
+  const [{},dispatch] = useStateValue();
+
+  useEffect(()=>{
+    //will run only once when the app component loads
+
+    onAuthStateChanged(auth, (authUser)=>{
+      console.log("User is >>", authUser);
+
+      if (authUser){
+        // user logged in
+        dispatch({
+          type : "SET_USER",
+          user : authUser
+        })
+      }else{
+        //user us logged out
+        dispatch({
+          type : "SET_USER",
+          user : null
+        })
+      }
+    })
+  },[])
+
   return (
     <Router>
       <div className="app">
