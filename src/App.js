@@ -84,7 +84,7 @@ product button onclick -> dispatch item into data layer
 
 
 */
-/*TODO:LOGIN PAGE
+/*DONE:LOGIN PAGE
 -route설정
 -link설정
 -login page 디자인 및 함수설정
@@ -99,6 +99,36 @@ firebase -> file 세팅 sdk, db, auth
 useHistory 옜날버전 지금은 useNavigate
 
 */
+
+/*TODO: DEPLOY APP
+npm install -g firebase-tools
+
+firebase init
+--> Firebase CLI v11.0.0 is incompatible with Node.js v13.14.0 Please upgrade Node.js to version >= 14.18.0
+-> npm install -g firebase-tools@9.21.0
+
+--> SELECT PROJECT
+--> PUBLIC DIRECTORY - biuld
+--> SPA? -YES
+created files -> firebase.json / firebaserc
+
+npm run build -> creating optimized production build
+
+firebase deploy
+  -> get hosting url
+
+*/
+//TODO:  FLIP MOVE ANIMATION
+//TODO: OUR AGENDA
+//TODO: ANIMATIONS
+//TODO: USERNAME / EMAIL IN HEADER
+
+//TODO: PAMENT PAGE
+//TODO: PAMENT PROCESSING
+//TODO: THE ORDER HISTORY PAGE (REALTIME DATABSE)
+
+//TODO: Becoming A React JS Developer 
+
 import React, { useEffect } from 'react';
 import "./App.css"
 
