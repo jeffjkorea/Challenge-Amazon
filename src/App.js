@@ -71,6 +71,17 @@ Link로 각 링크연결
 
 subtotal 컴포넌트 
 react-currency-format 설치
+https://www.npmjs.com/package/react-currency-format
+
+data fetching
+
+HOME에서
+add basket버튼 누르면 -> react context API / REDUX  -> 장바구니를 UPDATE시킨다.
+
+context file -> provider 
+index.js provider
+reducer.js
+product button onclick -> dispatch item into data layer
 
 
 
