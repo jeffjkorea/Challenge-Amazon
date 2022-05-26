@@ -63,9 +63,15 @@ Array(45). fill(). map((v, i)=> i+1); 을 작성한다
 */
 
 
-/*TODO: CHECKOUT PAGE
+/*TODO: CHECKOUT PAGE-장바구니 page
 NPM INSTALL react-router-dom
 routing 기능 설치!
+
+Link로 각 링크연결 
+
+subtotal 컴포넌트 
+react-currency-format 설치
+
 
 
 */
@@ -76,21 +82,23 @@ import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
     <Router>
-      <Header/>
+      <div className="app">
+        <Header/>
 
-      <Routes>
-        <Route path="/" element={
-          <Home/>
-        }/>
-        <Route path="/checkout" element={
-          <h1>Checkout</h1>
-        }/>
-      </Routes>
-
+        <Routes>
+          <Route path="/" element={
+            <Home/>
+          }/>
+          <Route path="/checkout" element={
+            <Checkout/>
+          }/>
+        </Routes>
+      </div>
     </Router>
   )
 }
