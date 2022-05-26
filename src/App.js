@@ -61,9 +61,7 @@ value : 배열을 채울 값 / start : 시작 인덱스 / end : 끝 인덱스 ( 
 만약 같은 숫자가 아닌 1부터 45까지 모든 숫자를 출력
 Array(45). fill(). map((v, i)=> i+1); 을 작성한다
 */
-
-
-/*TODO: CHECKOUT PAGE-장바구니 page
+/*DONE: CHECKOUT PAGE-장바구니 page
 NPM INSTALL react-router-dom
 routing 기능 설치!
 
@@ -86,27 +84,32 @@ product button onclick -> dispatch item into data layer
 
 
 */
+/*TODO:LOGIN PAGE
+-route설정
+
+*/
 import React from 'react';
 import "./App.css"
 
 import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 
-import Header from './components/Header/Header';
-import Home from './components/Home/Home';
-import Checkout from './components/Checkout/Checkout';
+import Home from './pages/Home/Home';
+import Checkout from './pages/Checkout/Checkout';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
     <Router>
       <div className="app">
-        <Header/>
-
         <Routes>
           <Route path="/" element={
             <Home/>
           }/>
           <Route path="/checkout" element={
             <Checkout/>
+          }/>
+          <Route path="/login" element={
+            <Login/>
           }/>
         </Routes>
       </div>
