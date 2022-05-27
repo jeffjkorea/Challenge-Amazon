@@ -107,6 +107,13 @@ firebase init
 --> Firebase CLI v11.0.0 is incompatible with Node.js v13.14.0 Please upgrade Node.js to version >= 14.18.0
 -> npm install -g firebase-tools@9.21.0
 
+-> Error: Failed to authenticate, have you run firebase login?
+다음같은에러는 현재 권한이 부여되지않음을 의미한다 따라서 명령어를 통해 로그인을 해줘야한다.
+-> firebase login
+
+-> firebase init
+  -> hosting 선택 Configure files for Firebase Hosting and (optionally) set up GitHub Action deploys
+
 --> SELECT PROJECT
 --> PUBLIC DIRECTORY - biuld
 --> SPA? -YES
@@ -115,10 +122,45 @@ created files -> firebase.json / firebaserc
 npm run build -> creating optimized production build
 
 firebase deploy
-  -> get hosting url
+  -> get hosting url : https://challenge-77583.web.app
 
 */
-//TODO:  FLIP MOVE ANIMATION
+//TODO:  FLIP MOVE ANIMATION -> react-flip-move
+/*
+https://www.npmjs.com/package/react-flip-move
+npm i react-flip-move
+
+quick start
+
+import FlipMove from 'react-flip-move';
+
+wrap the children with <FlipMove> and get animation for free
+
+There are a number of options you can provide to customize Flip Move. 
+
+
+Wrapping Element
+<FlipMove>
+  <div key="a">Hello</div>
+  <div key="b">World</div>
+</FlipMove>
+
+<FlipMove>
+    {articles.map(article => (
+      <Article key={article.id} {...article} />
+    ))}
+</FlipMove>
+
+
+
+
+
+1 upgrade the header component to include the user's email
+2. add animation tothe build
+3. style amazon
+4. depluy the app
+*/
+
 //TODO: OUR AGENDA
 //TODO: ANIMATIONS
 //TODO: USERNAME / EMAIL IN HEADER
@@ -141,6 +183,7 @@ import { useStateValue } from './context/StateProvider';
 
 import { auth } from './firebase';
 import { onAuthStateChanged } from "firebase/auth";
+import Payment from './pages/Payment/Payment';
 
 
 function App() {
@@ -175,11 +218,14 @@ function App() {
           <Route path="/" element={
             <Home/>
           }/>
+          <Route path="/login" element={
+            <Login/>
+          }/>
           <Route path="/checkout" element={
             <Checkout/>
           }/>
-          <Route path="/login" element={
-            <Login/>
+          <Route path="/payment" element={
+            <Payment/>
           }/>
         </Routes>
       </div>

@@ -5,6 +5,7 @@ import Subtotal from '../../components/Subtotal/Subtotal'
 import Header from "../../components/Header/Header"
 import "./Checkout.css"
 
+
 function Checkout() {
     const [{basket},dispatch] = useStateValue();
 
